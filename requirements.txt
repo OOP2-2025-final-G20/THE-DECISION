@@ -1,4 +1,4 @@
-python 3.13 or higher
+# Requires Python 3.13 or higher
 # GUIおよびWebフレームワーク
 flet>=0.21.0
 flet-web>=0.80.0
