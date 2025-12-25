@@ -6,10 +6,10 @@
 > このリポジトリのアプリを動作させるために行う手順
 ```bash
 ### 仮想環境（env）を作成
-python3 -m venv env
+python3 -m venv env #←コピーして実行
 
 ### 仮想環境を有効化 (Mac / Linux)
-source env/bin/activate
-pip install -r requirements.txt
-python base.py
+source env/bin/activate　#←コピーして実行
+pip install -r requirements.txt　#←コピーして実行
+python base.py　#←コピーして実行
 ```
