@@ -76,7 +76,11 @@ async def main(page: ft.Page):
     )
 
 # --- 3. 統合 (FletをFastAPIにマウントする) ---
-app.mount("/", flet_fastapi.app(main))
+async def before_main(page: ft.Page):
+    # Page作成後の初期化処理（必要に応じて）
+    pass
+
+app.mount("/", flet_fastapi.app(main, before_main))
 
 if __name__ == "__main__":
     import uvicorn
