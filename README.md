@@ -32,11 +32,11 @@
 
 | 担当領域  | 担当者のアカウント  | 責任範囲  |
 | :--- | :--- | :--- |
-| **Project Leader / PM** | [@あなたのID](https://github.com/あなたのID) | 全体設計、API仕様策定、結合テスト、進捗管理 |
-| **UI / Frontend** | [@AさんのID](https://github.com/AさんのID) | 画面レイアウト、ボタンデザイン、CSS調整、スマホ対応 |
-| **Visual Effects** | [@BさんのID](https://github.com/BさんのID) | グラフアニメーション、結果発表時の演出エフェクト |
-| **Server Logic** | [@CさんのID](https://github.com/CさんのID) | FastAPI実装、集計ロジック、ルーティング処理 |
-| **Data & Network** | [@DさんのID](https://github.com/DさんのID) | データベース設計(SQLite)、過去ログ機能、通信環境設定 |
+| **Project Leader / PM** | [@宮澤悠大さんのID](https://github.com/fightingle2525) | 全体設計、API仕様策定、結合テスト、進捗管理 |
+| **UI / Frontend** | [@仙田和暉さんのID](https://github.com/FlexLife777) | 画面レイアウト、ボタンデザイン、見た目の調整 |
+| **Visual Effects** | [@石田柊人さんのID](https://github.com/Shuto0126) | グラフアニメーション、結果発表時の演出エフェクト |
+| **Server Logic** | [@加藤雅士さんのID](https://github.com/masa2513) | FastAPI実装、集計ロジック、ルーティング処理 |
+| **Data & Network** | [@西脇晃蒼さんのID](https://github.com/Akiraao4532) | データベース設計(SQLite)、過去ログ機能、通信環境設定 |
 
 ---
 
