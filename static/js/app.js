@@ -13,8 +13,10 @@ function showPage(pageId) {
     document.getElementById(pageId).classList.add('active');
     
     // 各ページの初期化
-    if (pageId === 'question-page') {
-        loadQuestion();
+    if (pageId === 'select-question-page') {
+        loadSelectionList(); // 問題選択リストを読み込む
+    } else if (pageId === 'question-page') {
+        loadQuestionDetail(); // 選択された特定の問題を読み込む
     } else if (pageId === 'history-page') {
         loadHistory();
     } else if (pageId === 'edit-list-page') {
@@ -48,11 +50,45 @@ async function apiCall(endpoint, method = 'GET', data = null) {
     }
 }
 
-// お題を読み込む
-async function loadQuestion() {
+// --- 【新規・変更】回答するための問題一覧を読み込む ---
+async function loadSelectionList() {
     try {
-        const question = await apiCall('/question');
-        currentQuestionId = question.id;
+        const questions = await apiCall('/questions');
+        const listElement = document.getElementById('selection-list');
+        listElement.innerHTML = '';
+        
+        if (questions.length === 0) {
+            listElement.innerHTML = '<li class="guide-text">問題がまだ登録されていません</li>';
+            return;
+        }
+        
+        questions.forEach(q => {
+            const li = document.createElement('li');
+            li.className = 'selection-item';
+            li.innerHTML = `<span class="selection-item-text">${q.q}</span>`;
+            
+            // クリックした時にIDを保存して回答画面へ
+            li.onclick = () => {
+                currentQuestionId = q.id;
+                showPage('question-page');
+            };
+            listElement.appendChild(li);
+        });
+    } catch (error) {
+        alert('問題リストの読み込みに失敗しました');
+    }
+}
+
+// --- 【新規・変更】選択された問題の詳細を回答画面に表示する ---
+async function loadQuestionDetail() {
+    if (!currentQuestionId) {
+        document.getElementById('question-text').textContent = 'Q. 問題が選択されていません';
+        return;
+    }
+
+    try {
+        // 特定のIDの問題データを取得
+        const question = await apiCall(`/question/${currentQuestionId}`);
         document.getElementById('question-text').textContent = `Q. ${question.q}`;
         document.getElementById('option-a-text').textContent = question.a;
         document.getElementById('option-b-text').textContent = question.b;

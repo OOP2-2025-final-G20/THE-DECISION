@@ -4,5 +4,53 @@
     "choice": "A",
     "user_name": null,
     "voted_at": "2026-01-08T14:07:15.176911"
+  },
+  {
+    "question_id": 3,
+    "choice": "B",
+    "user_name": null,
+    "voted_at": "2026-01-08T14:36:20.743256"
+  },
+  {
+    "question_id": 3,
+    "choice": "A",
+    "user_name": null,
+    "voted_at": "2026-01-08T14:55:22.689153"
+  },
+  {
+    "question_id": 3,
+    "choice": "B",
+    "user_name": null,
+    "voted_at": "2026-01-08T15:25:40.835164"
+  },
+  {
+    "question_id": 4,
+    "choice": "A",
+    "user_name": null,
+    "voted_at": "2026-01-08T15:26:56.630867"
+  },
+  {
+    "question_id": 3,
+    "choice": "A",
+    "user_name": null,
+    "voted_at": "2026-01-08T15:27:02.330322"
+  },
+  {
+    "question_id": 3,
+    "choice": "B",
+    "user_name": null,
+    "voted_at": "2026-01-08T15:27:24.729055"
+  },
+  {
+    "question_id": 2,
+    "choice": "A",
+    "user_name": null,
+    "voted_at": "2026-01-08T15:27:29.079607"
+  },
+  {
+    "question_id": 3,
+    "choice": "B",
+    "user_name": null,
+    "voted_at": "2026-01-08T15:27:44.262511"
   }
 ]
