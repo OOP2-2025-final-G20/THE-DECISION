@@ -1,0 +1,17 @@
+<div id="edit-detail-page" class="page">
+    <header class="app-bar brown">
+        <button class="back-btn" onclick="showPage('edit-list-page')">←</button>
+        <h1>内容を編集</h1>
+    </header>
+    <main class="container">
+        <div class="form-group">
+            <input type="text" id="edit-question" class="input-field" placeholder="質問文">
+            <input type="text" id="edit-option-a" class="input-field" placeholder="選択肢A">
+            <input type="text" id="edit-option-b" class="input-field" placeholder="選択肢B">
+        </div>
+        <div class="button-group">
+            <button class="btn btn-brown" onclick="saveEdit()">変更を保存</button>
+            <button class="btn btn-link" onclick="showPage('edit-list-page')">キャンセル</button>
+        </div>
+    </main>
+</div>

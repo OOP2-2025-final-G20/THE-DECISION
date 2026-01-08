@@ -1,14 +1,14 @@
 """
 FastAPIサーバー - 究極の二択！意思決定・多数決支援ツール
 """
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.staticfiles import StaticFiles
-from fastapi.responses import HTMLResponse, FileResponse
+from fastapi.responses import HTMLResponse
+from fastapi.templating import Jinja2Templates  # 追加
 from pydantic import BaseModel
 from typing import Optional, List
 from datetime import datetime
 import json
-import os
 from pathlib import Path
 
 app = FastAPI(
@@ -19,6 +19,9 @@ app = FastAPI(
 
 # 静的ファイルのマウント
 app.mount("/static", StaticFiles(directory="static"), name="static")
+
+# テンプレートエンジンの設定
+templates = Jinja2Templates(directory="templates")  # 追加
 
 # データファイルのパス
 DATA_DIR = Path("data")
@@ -55,24 +58,20 @@ class VoteRequest(BaseModel):
 # --- データ永続化関数 ---
 
 def load_questions() -> List[dict]:
-    """お題データを読み込む"""
     if QUESTIONS_FILE.exists():
         try:
             with open(QUESTIONS_FILE, "r", encoding="utf-8") as f:
                 return json.load(f)
         except:
             pass
-    # 初期データを保存
     save_questions(INITIAL_QUESTIONS)
     return INITIAL_QUESTIONS
 
 def save_questions(questions: List[dict]):
-    """お題データを保存する"""
     with open(QUESTIONS_FILE, "w", encoding="utf-8") as f:
         json.dump(questions, f, ensure_ascii=False, indent=2)
 
 def load_votes() -> List[dict]:
-    """投票データを読み込む"""
     if VOTES_FILE.exists():
         try:
             with open(VOTES_FILE, "r", encoding="utf-8") as f:
@@ -82,19 +81,16 @@ def load_votes() -> List[dict]:
     return []
 
 def save_votes(votes: List[dict]):
-    """投票データを保存する"""
     with open(VOTES_FILE, "w", encoding="utf-8") as f:
         json.dump(votes, f, ensure_ascii=False, indent=2)
 
 def get_next_question_id() -> int:
-    """次のお題IDを取得する"""
     questions = load_questions()
     if not questions:
         return 1
     return max(q["id"] for q in questions) + 1
 
 def get_active_question_id() -> Optional[int]:
-    """現在アクティブなお題IDを取得する（最新のお題）"""
     questions = load_questions()
     if not questions:
         return None
@@ -103,16 +99,14 @@ def get_active_question_id() -> Optional[int]:
 # --- APIエンドポイント ---
 
 @app.get("/", response_class=HTMLResponse)
-async def read_root():
-    """メインHTMLを返す"""
-    html_path = Path("templates/index.html")
-    if html_path.exists():
-        return FileResponse(html_path)
-    return HTMLResponse("<h1>HTMLファイルが見つかりません</h1>")
+async def read_root(request: Request):
+    """
+    分割されたテンプレートを合体させてメイン画面を返す
+    """
+    return templates.TemplateResponse("index.html", {"request": request})
 
 @app.get("/api/question")
 async def get_current_question():
-    """現在アクティブなお題を取得する"""
     question_id = get_active_question_id()
     if question_id is None:
         raise HTTPException(status_code=404, detail="お題が登録されていません")
@@ -126,7 +120,6 @@ async def get_current_question():
 
 @app.get("/api/question/{question_id}")
 async def get_question(question_id: int):
-    """特定のお題を取得する"""
     questions = load_questions()
     question = next((q for q in questions if q["id"] == question_id), None)
     if question is None:
@@ -135,15 +128,12 @@ async def get_question(question_id: int):
 
 @app.get("/api/questions")
 async def get_all_questions():
-    """過去のお題一覧を取得する"""
     questions = load_questions()
-    # 新しい順にソート
     questions.sort(key=lambda x: x["id"], reverse=True)
     return questions
 
 @app.post("/api/question")
 async def create_question(question_data: QuestionCreate):
-    """新しいお題を作成する"""
     questions = load_questions()
     new_id = get_next_question_id()
     
@@ -161,14 +151,12 @@ async def create_question(question_data: QuestionCreate):
 
 @app.put("/api/question/{question_id}")
 async def update_question(question_id: int, question_update: QuestionUpdate):
-    """お題を編集する"""
     questions = load_questions()
     question = next((q for q in questions if q["id"] == question_id), None)
     
     if question is None:
         raise HTTPException(status_code=404, detail="お題が見つかりません")
     
-    # 更新
     if question_update.q is not None:
         question["q"] = question_update.q
     if question_update.a is not None:
@@ -181,7 +169,6 @@ async def update_question(question_id: int, question_update: QuestionUpdate):
 
 @app.delete("/api/question/{question_id}")
 async def delete_question(question_id: int):
-    """お題を削除する"""
     questions = load_questions()
     question = next((q for q in questions if q["id"] == question_id), None)
     
@@ -191,7 +178,6 @@ async def delete_question(question_id: int):
     questions = [q for q in questions if q["id"] != question_id]
     save_questions(questions)
     
-    # 関連する投票も削除
     votes = load_votes()
     votes = [v for v in votes if v["question_id"] != question_id]
     save_votes(votes)
@@ -200,18 +186,14 @@ async def delete_question(question_id: int):
 
 @app.post("/api/vote")
 async def post_vote(vote: VoteRequest):
-    """投票を受け付ける"""
-    # お題の存在確認
     questions = load_questions()
     question = next((q for q in questions if q["id"] == vote.question_id), None)
     if question is None:
         raise HTTPException(status_code=404, detail="お題が見つかりません")
     
-    # 選択肢の検証
     if vote.choice not in ["A", "B"]:
         raise HTTPException(status_code=400, detail="choiceは'A'または'B'である必要があります")
     
-    # 投票を保存
     votes = load_votes()
     new_vote = {
         "question_id": vote.question_id,
@@ -226,20 +208,16 @@ async def post_vote(vote: VoteRequest):
 
 @app.get("/api/results")
 async def get_results(question_id: Optional[int] = None):
-    """現在の集計結果を取得する"""
-    # question_idが指定されていない場合は、アクティブなお題を使用
     if question_id is None:
         question_id = get_active_question_id()
         if question_id is None:
             raise HTTPException(status_code=404, detail="お題が登録されていません")
     
-    # お題の取得
     questions = load_questions()
     question = next((q for q in questions if q["id"] == question_id), None)
     if question is None:
         raise HTTPException(status_code=404, detail="お題が見つかりません")
     
-    # 投票の集計
     votes = load_votes()
     question_votes = [v for v in votes if v["question_id"] == question_id]
     
@@ -264,16 +242,13 @@ async def get_results(question_id: Optional[int] = None):
 
 @app.get("/api/question/{question_id}/results")
 async def get_question_results(question_id: int):
-    """特定のお題の集計結果を取得する"""
     return await get_results(question_id=question_id)
 
 @app.get("/api/history")
 async def get_history():
-    """過去のお題の質問文一覧を取得する"""
     questions = load_questions()
     return [item["q"] for item in questions]
 
 if __name__ == "__main__":
     import uvicorn
-    # 全てのネットワークインターフェースで待ち受け
     uvicorn.run(app, host="0.0.0.0", port=8000)
