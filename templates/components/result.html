@@ -1,0 +1,15 @@
+<div id="result-page" class="page">
+    <header class="app-bar red"><h1>集計結果</h1></header>
+    <main class="container">
+        <h2 class="result-title">投票完了！</h2>
+        <button class="btn btn-orange" id="open-result-btn" onclick="openResult()">結果をオープン！</button>
+        <div id="result-content" class="result-content hidden">
+            <div class="result-bars">
+                <div class="result-bar red" id="bar-a"><span id="bar-a-text"></span></div>
+                <span class="vs-text">VS</span>
+                <div class="result-bar blue" id="bar-b"><span id="bar-b-text"></span></div>
+            </div>
+        </div>
+        <button class="btn btn-link" onclick="showPage('top-page')">トップに戻る</button>
+    </main>
+</div>
