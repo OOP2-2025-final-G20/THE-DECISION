@@ -70,5 +70,39 @@ python3 -m venv env #←コピーして実行
 ### 仮想環境を有効化 (Mac / Linux)
 source env/bin/activate　#←コピーして実行
 pip install -r requirements.txt　#←コピーして実行
-python base.py　#←コピーして実行
+python server.py　#←コピーして実行
 ```
+
+サーバーが起動したら、ブラウザで `http://localhost:8000` にアクセスしてください。
+
+## ファイル構成
+
+```
+THE-DECISION/
+├── server.py              # FastAPIサーバー（バックエンド）
+├── templates/
+│   └── index.html         # HTMLテンプレート（フロントエンド）
+├── static/
+│   ├── css/
+│   │   └── style.css      # CSSスタイル
+│   └── js/
+│       └── app.js          # JavaScript（フロントエンドロジック）
+├── data/                  # データ保存ディレクトリ（自動生成）
+│   ├── questions.json     # お題データ
+│   └── votes.json         # 投票データ
+└── requirements.txt       # 依存パッケージ
+```
+
+## APIエンドポイント
+
+- `GET /` - メインHTMLページ
+- `GET /api/question` - 現在アクティブなお題を取得
+- `POST /api/vote` - 投票を受け付ける
+- `GET /api/results` - 集計結果を取得
+- `GET /api/questions` - お題一覧を取得
+- `POST /api/question` - お題を作成
+- `PUT /api/question/{question_id}` - お題を編集
+- `DELETE /api/question/{question_id}` - お題を削除
+- `GET /api/history` - 過去のお題の質問文一覧を取得
+
+詳細なAPI仕様は、サーバー起動後に `http://localhost:8000/docs` で確認できます。

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>究極の2択 Web</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <!-- トップページ -->
+    <div id="top-page" class="page active">
+        <header class="app-bar blue">
+            <h1>トップメニュー</h1>
+        </header>
+        <main class="container">
+            <h2 class="welcome-title">究極の選択へようこそ</h2>
+            <div class="button-group">
+                <button class="btn btn-blue" onclick="showPage('question-page')">回答を始める</button>
+                <button class="btn btn-blue" onclick="showPage('create-page')">問題を作る</button>
+                <button class="btn btn-blue" onclick="showPage('history-page')">過去の履歴</button>
+                <button class="btn btn-orange" onclick="showPage('edit-list-page')">問題を編集</button>
+            </div>
+        </main>
+    </div>
+
+    <!-- 回答画面 -->
+    <div id="question-page" class="page">
+        <header class="app-bar orange">
+            <button class="back-btn" onclick="showPage('top-page')">←</button>
+            <h1>回答画面</h1>
+        </header>
+        <main class="container">
+            <h2 id="question-text" class="question-title">Q. 読み込み中...</h2>
+            <div class="vote-buttons">
+                <button class="circle-btn red" id="btn-option-a" onclick="vote('A')">
+                    <span id="option-a-text">選択肢A</span>
+                </button>
+                <span class="vs-text">VS</span>
+                <button class="circle-btn blue" id="btn-option-b" onclick="vote('B')">
+                    <span id="option-b-text">選択肢B</span>
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <!-- 結果画面 -->
+    <div id="result-page" class="page">
+        <header class="app-bar red">
+            <h1>集計結果</h1>
+        </header>
+        <main class="container">
+            <h2 class="result-title">投票完了！</h2>
+            <button class="btn btn-orange" id="open-result-btn" onclick="openResult()">結果をオープン！</button>
+            <div id="result-content" class="result-content hidden">
+                <div class="result-bars">
+                    <div class="result-bar red" id="bar-a">
+                        <span id="bar-a-text">A: 0票</span>
+                    </div>
+                    <span class="vs-text">VS</span>
+                    <div class="result-bar blue" id="bar-b">
+                        <span id="bar-b-text">B: 0票</span>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-link" onclick="showPage('top-page')">トップに戻る</button>
+        </main>
+    </div>
+
+    <!-- 問題登録画面 -->
+    <div id="create-page" class="page">
+        <header class="app-bar green">
+            <button class="back-btn" onclick="showPage('top-page')">←</button>
+            <h1>問題を登録</h1>
+        </header>
+        <main class="container">
+            <h2>新しい2択を作ろう</h2>
+            <div class="form-group">
+                <input type="text" id="create-question" class="input-field" placeholder="質問文">
+                <input type="text" id="create-option-a" class="input-field" placeholder="選択肢A">
+                <input type="text" id="create-option-b" class="input-field" placeholder="選択肢B">
+            </div>
+            <div class="button-group">
+                <button class="btn btn-green" onclick="createQuestion()">登録する</button>
+                <button class="btn btn-link" onclick="showPage('top-page')">キャンセル</button>
+            </div>
+        </main>
+    </div>
+
+    <!-- 履歴画面 -->
+    <div id="history-page" class="page">
+        <header class="app-bar purple">
+            <button class="back-btn" onclick="showPage('top-page')">←</button>
+            <h1>過去の履歴</h1>
+        </header>
+        <main class="container">
+            <ul id="history-list" class="history-list">
+                <!-- 動的に生成 -->
+            </ul>
+        </main>
+    </div>
+
+    <!-- 編集リスト画面 -->
+    <div id="edit-list-page" class="page">
+        <header class="app-bar brown">
+            <button class="back-btn" onclick="showPage('top-page')">←</button>
+            <h1>問題の編集・削除</h1>
+        </header>
+        <main class="container">
+            <ul id="edit-list" class="edit-list">
+                <!-- 動的に生成 -->
+            </ul>
+            <button class="btn btn-link" onclick="showPage('top-page')">トップに戻る</button>
+        </main>
+    </div>
+
+    <!-- 編集詳細画面 -->
+    <div id="edit-detail-page" class="page">
+        <header class="app-bar brown">
+            <button class="back-btn" onclick="showPage('edit-list-page')">←</button>
+            <h1>内容を編集</h1>
+        </header>
+        <main class="container">
+            <div class="form-group">
+                <input type="text" id="edit-question" class="input-field" placeholder="質問文">
+                <input type="text" id="edit-option-a" class="input-field" placeholder="選択肢A">
+                <input type="text" id="edit-option-b" class="input-field" placeholder="選択肢B">
+            </div>
+            <div class="button-group">
+                <button class="btn btn-brown" onclick="saveEdit()">変更を保存</button>
+                <button class="btn btn-link" onclick="showPage('edit-list-page')">キャンセル</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>

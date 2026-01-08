@@ -1,0 +1,390 @@
+/* リセットCSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #ffffff;
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* ページ管理 */
+.page {
+    display: none;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.page.active {
+    display: flex;
+}
+
+/* ヘッダー（AppBar） */
+.app-bar {
+    background-color: #2196F3;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.app-bar.blue {
+    background-color: #2196F3;
+}
+
+.app-bar.orange {
+    background-color: #FF9800;
+}
+
+.app-bar.red {
+    background-color: #F44336;
+}
+
+.app-bar.green {
+    background-color: #4CAF50;
+}
+
+.app-bar.purple {
+    background-color: #9C27B0;
+}
+
+.app-bar.brown {
+    background-color: #795548;
+}
+
+.app-bar h1 {
+    font-size: 20px;
+    font-weight: bold;
+    flex: 1;
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+.back-btn:hover {
+    opacity: 0.8;
+}
+
+/* コンテナ */
+.container {
+    flex: 1;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* タイトル */
+.welcome-title {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.question-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.result-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* ボタングループ */
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    max-width: 300px;
+}
+
+/* ボタン */
+.btn {
+    width: 100%;
+    height: 55px;
+    border-radius: 30px;
+    border: 1px solid;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-blue {
+    background-color: #E3F2FD;
+    color: #1976D2;
+    border-color: #BBDEFB;
+}
+
+.btn-blue:hover {
+    background-color: #BBDEFB;
+}
+
+.btn-orange {
+    background-color: #FFF3E0;
+    color: #E65100;
+    border-color: #FFE0B2;
+}
+
+.btn-orange:hover {
+    background-color: #FFE0B2;
+}
+
+.btn-green {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    width: 150px;
+}
+
+.btn-green:hover {
+    background-color: #45a049;
+}
+
+.btn-brown {
+    background-color: #795548;
+    color: white;
+    border: none;
+    width: 150px;
+}
+
+.btn-brown:hover {
+    background-color: #6d4c41;
+}
+
+.btn-link {
+    background: none;
+    border: none;
+    color: #2196F3;
+    padding: 10px;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.btn-link:hover {
+    color: #1976D2;
+}
+
+/* 投票ボタン */
+.vote-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.circle-btn {
+    width: 150px;
+    height: 150px;
+    border-radius: 75px;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circle-btn.red {
+    background-color: #EF5350;
+}
+
+.circle-btn.red:hover {
+    background-color: #E53935;
+    transform: scale(1.05);
+}
+
+.circle-btn.blue {
+    background-color: #42A5F5;
+}
+
+.circle-btn.blue:hover {
+    background-color: #1E88E5;
+    transform: scale(1.05);
+}
+
+.vs-text {
+    font-size: 24px;
+    font-weight: bold;
+    color: #666;
+}
+
+/* 結果表示 */
+.result-content {
+    margin-top: 30px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.result-content.hidden {
+    display: none;
+}
+
+.result-bars {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.result-bar {
+    height: 50px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    transition: width 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    min-width: 100px;
+    width: 0;
+}
+
+.result-bar.red {
+    background-color: #EF5350;
+}
+
+.result-bar.blue {
+    background-color: #42A5F5;
+}
+
+/* フォーム */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 20px;
+}
+
+.input-field {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: #2196F3;
+}
+
+/* リスト */
+.history-list,
+.edit-list {
+    list-style: none;
+    width: 100%;
+    max-width: 600px;
+}
+
+.history-list li,
+.edit-list li {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.history-list li:before {
+    content: "📜";
+    font-size: 20px;
+}
+
+.edit-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.edit-item-title {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.edit-item-subtitle {
+    font-size: 14px;
+    color: #666;
+}
+
+.edit-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.edit-btn,
+.delete-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.edit-btn {
+    color: #2196F3;
+}
+
+.delete-btn {
+    color: #F44336;
+}
+
+.edit-btn:hover,
+.delete-btn:hover {
+    opacity: 0.7;
+}
+
+/* レスポンシブ */
+@media (max-width: 600px) {
+    .welcome-title {
+        font-size: 24px;
+    }
+    
+    .question-title {
+        font-size: 20px;
+    }
+    
+    .circle-btn {
+        width: 120px;
+        height: 120px;
+        font-size: 14px;
+    }
+    
+    .vote-buttons {
+        gap: 20px;
+    }
+}
