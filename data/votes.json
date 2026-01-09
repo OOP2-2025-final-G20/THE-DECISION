@@ -48,57 +48,45 @@
     "voted_at": "2026-01-08T15:27:44.262511"
   },
   {
-    "question_id": 3,
-    "choice": "A",
-    "user_name": null,
-    "voted_at": "2026-01-08T15:54:57.067797"
-  },
-  {
-    "question_id": 3,
-    "choice": "A",
-    "user_name": null,
-    "voted_at": "2026-01-08T15:55:02.480611"
-  },
-  {
-    "question_id": 2,
+    "question_id": 5,
     "choice": "B",
     "user_name": null,
-    "voted_at": "2026-01-08T15:55:07.283810"
+    "voted_at": "2026-01-08T15:55:52.226607"
   },
   {
-    "question_id": 2,
+    "question_id": 5,
+    "choice": "A",
+    "user_name": null,
+    "voted_at": "2026-01-08T15:55:55.960079"
+  },
+  {
+    "question_id": 5,
     "choice": "B",
     "user_name": null,
-    "voted_at": "2026-01-08T15:55:12.284104"
+    "voted_at": "2026-01-08T15:55:58.491225"
   },
   {
-    "question_id": 3,
+    "question_id": 5,
     "choice": "B",
     "user_name": null,
-    "voted_at": "2026-01-08T16:04:00.302646"
+    "voted_at": "2026-01-08T15:56:02.160973"
   },
   {
-    "question_id": 2,
-    "choice": "A",
+    "question_id": 5,
+    "choice": "B",
     "user_name": null,
-    "voted_at": "2026-01-08T16:04:26.052943"
+    "voted_at": "2026-01-08T15:56:04.359600"
   },
   {
-    "question_id": 2,
+    "question_id": 5,
     "choice": "A",
     "user_name": null,
-    "voted_at": "2026-01-08T16:04:30.901026"
+    "voted_at": "2026-01-08T15:56:14.459764"
   },
   {
-    "question_id": 4,
+    "question_id": 5,
     "choice": "A",
     "user_name": null,
-    "voted_at": "2026-01-08T16:05:01.551286"
-  },
-  {
-    "question_id": 3,
-    "choice": "A",
-    "user_name": null,
-    "voted_at": "2026-01-08T16:06:43.220390"
+    "voted_at": "2026-01-08T15:56:18.658219"
   }
 ]
