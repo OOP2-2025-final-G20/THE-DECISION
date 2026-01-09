@@ -1,0 +1,18 @@
+<div id="create-page" class="page">
+    <header class="app-bar green">
+        <button class="back-btn" onclick="showPage('top-page')">←</button>
+        <h1>問題を登録</h1>
+    </header>
+    <main class="container">
+        <h2>新しい2択を作ろう</h2>
+        <div class="form-group">
+            <input type="text" id="create-question" class="input-field" placeholder="質問文">
+            <input type="text" id="create-option-a" class="input-field" placeholder="選択肢A">
+            <input type="text" id="create-option-b" class="input-field" placeholder="選択肢B">
+        </div>
+        <div class="button-group">
+            <button class="btn btn-green" onclick="createQuestion()">登録する</button>
+            <button class="btn btn-link" onclick="showPage('top-page')">キャンセル</button>
+        </div>
+    </main>
+</div>
