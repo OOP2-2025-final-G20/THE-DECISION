@@ -112,17 +112,3 @@ THE-DECISION/
 │   └── votes.json         # 投票データ
 └── requirements.txt       # 依存パッケージ
 ```
-
-## APIエンドポイント
-
-- `GET /` - メインHTMLページ
-- `GET /api/question` - 現在アクティブなお題を取得
-- `POST /api/vote` - 投票を受け付ける
-- `GET /api/results` - 集計結果を取得
-- `GET /api/questions` - お題一覧を取得
-- `POST /api/question` - お題を作成
-- `PUT /api/question/{question_id}` - お題を編集
-- `DELETE /api/question/{question_id}` - お題を削除
-- `GET /api/history` - 過去のお題の質問文一覧を取得
-
-詳細なAPI仕様は、サーバー起動後に `http://localhost:8000/docs` で確認できます。
