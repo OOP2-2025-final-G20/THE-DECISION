@@ -77,12 +77,12 @@ python server.py　#←コピーして実行
 
 サーバーが起動したら、ブラウザで `http://localhost:8000` にアクセスしてください。
 
----
+<br>
 
 >ローカルサーバーを外部公開し他の端末からアクセスするために行う手順
 
 1. 以下のリンクからアカウントを作成
-	https://dashboard.ngrok.com/get-started/setup/macos
+https://dashboard.ngrok.com/get-started/setup/macos
 
 2. 画面左のタブから『Setup & Installation』を選択、Homebrewでの操作手順に従いターミナルから「brew install ngrok」コピー＆ペーストして実行
 
