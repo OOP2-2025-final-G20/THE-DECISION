@@ -88,5 +88,17 @@
     "choice": "A",
     "user_name": null,
     "voted_at": "2026-01-08T15:56:18.658219"
+  },
+  {
+    "question_id": 5,
+    "choice": "A",
+    "user_name": null,
+    "voted_at": "2026-01-15T16:42:14.305570"
+  },
+  {
+    "question_id": 5,
+    "choice": "B",
+    "user_name": null,
+    "voted_at": "2026-01-15T16:42:20.355908"
   }
 ]

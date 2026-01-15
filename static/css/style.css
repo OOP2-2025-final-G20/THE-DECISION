@@ -101,6 +101,14 @@ body {
     max-width: 300px;
 }
 
+.edit-detail-button-group {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    width: 100%;
+    max-width: 300px;
+}
+
 /* ボタン */
 .btn {
     width: 100%;
