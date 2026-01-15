@@ -37,7 +37,7 @@
 
 | 担当領域  | 担当者のアカウント  | 責任範囲  |
 | :--- | :--- | :--- |
-| **Project Leader / PM** | [@fitingle2525のID](https://github.com/fightingle2525) | 全体設計、API仕様策定、結合テスト、進捗管理 |
+| **Project Leader / PM** | [@fightingle2525のID](https://github.com/fightingle2525) | 全体設計、API仕様策定、結合テスト、進捗管理 |
 | **UI / Frontend** | [@FlexLife777さんのID](https://github.com/FlexLife777) | 画面レイアウト、ボタンデザイン、見た目の調整 |
 | **Visual Effects** | [@Shuto0126さんのID](https://github.com/Shuto0126) | グラフアニメーション、結果発表時の演出エフェクト |
 | **Server Logic** | [@MasashiさんのID](https://github.com/masa2513) | FastAPI実装、集計ロジック、ルーティング処理 |
