@@ -77,6 +77,21 @@ python server.py　#←コピーして実行
 
 サーバーが起動したら、ブラウザで `http://localhost:8000` にアクセスしてください。
 
+>ローカルサーバーを外部公開し他の端末からアクセスするために行う手順
+
+1. 以下のリンクからアカウントを作成
+	https://dashboard.ngrok.com/get-started/setup/macos
+
+2. 画面左のタブから『Setup & Installation』を選択、Homebrewでの操作手順に従いターミナルから「brew install ngrok」コピー＆ペーストして実行
+
+3. その後「ngrok config add-authtoken ○○○」（○○○には個人のauthtokenがあらかじめ入力されている）を同じくコピー＆ペーストし実行
+
+4. 最後に「ngrok http △△△」（△△△は任意のポート番号）を実行すれば外部公開は完了
+
+
+別端末からアクセスする側はホストのターミナル画面に表示された『Forwarding』という欄の左側のURLを開き、『Visit Site』というボタンを押すことでアクセスすることが可能
+
+
 ## ファイル構成
 
 ```
