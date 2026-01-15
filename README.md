@@ -69,6 +69,7 @@ python3 -m venv env #←コピーして実行
 
 ### 仮想環境を有効化 (Mac / Linux)
 source env/bin/activate　#←コピーして実行
+pip install jinja2 #←コピーして実行
 pip install -r requirements.txt　#←コピーして実行
 python server.py　#←コピーして実行
 ```
