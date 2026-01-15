@@ -93,6 +93,7 @@ https://dashboard.ngrok.com/get-started/setup/macos
 
 別端末からアクセスする側はホストのターミナル画面に表示された『Forwarding』という欄の左側のURLを開き、『Visit Site』というボタンを押すことでアクセスすることが可能
 
+<br>
 
 ## ファイル構成
 
