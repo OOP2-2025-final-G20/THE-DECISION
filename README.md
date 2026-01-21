@@ -5,7 +5,27 @@
 >
 
 ## アプリの概要
-特定の選択肢に対して、『A vs B』のように投票を行う。投票を行ったら、待機画面に行き全員が終わったら自分で開示ボタンを押すと全員の解答が見えるようになる。投票は匿名で行われるため、行き詰まった会議での意思決定を促したり、某ゲームのように全員の意見が一致するかを確認する遊びを行うこともできるエンターテイメント性を兼ね備えたWebアプリである。また、過去の履歴の表示や選択肢の追加なども行うことができる。
+特定の選択肢に対して、『A vs B』のように投票を行う。投票を行ったら、待機画面に行き全員が終わったら自分で開示ボタンを押すと全員の解答が見えるようになる。<br>
+投票は匿名で行われるため、行き詰まった会議での意思決定を促したり、某ゲームのように全員の意見が一致するかを確認する遊びを行うこともできるエンターテイメント性を兼ね備えたWebアプリである。<br>
+また、過去の履歴の表示や選択肢の追加なども行うことができる。<br>
+### アプリ画面
+- トップページ
+<img width="1467" height="783" alt="Image" src="https://github.com/user-attachments/assets/31684f6a-6bc6-442e-b3ca-bf0a9f980a2f" />
+- 問題登録画面
+<img width="1470" height="788" alt="Image" src="https://github.com/user-attachments/assets/3bf05bdc-6a8a-4f8c-bb89-ebcd12ab3176" />
+- 回答一覧画面
+<img width="1470" height="784" alt="Image" src="https://github.com/user-attachments/assets/8df5bddc-87c0-4354-9c02-8686bbc7100b" />
+- 選択画面
+<img width="1466" height="764" alt="Image" src="https://github.com/user-attachments/assets/21e7f1ff-5751-484e-baa1-af84298f3cca" />
+- 待機画面
+<img width="1470" height="781" alt="Image" src="https://github.com/user-attachments/assets/6f004db8-fd49-4d53-9d3c-4880ee01a53b" />
+- 結果表示画面
+<img width="1470" height="781" alt="Image" src="https://github.com/user-attachments/assets/c1ee4624-d357-4ef5-bcec-7896055c3953" />
+- 履歴画面
+<img width="1470" height="782" alt="Image" src="https://github.com/user-attachments/assets/7249db98-0d04-48f5-bfa9-dd2b75178b7e" />
+- 問題の編集・削除画面
+<img width="1470" height="773" alt="Image" src="https://github.com/user-attachments/assets/c08d75aa-eb33-4aab-a7d8-25d73c28ed5e" />
+
 
 ## アピールポイント
 - 普通の投票アプリは結果を即座に開示すると思うが、このアプリでは開示を結果を隠すプロセスを入れることによりドキドキ感を演出している。
